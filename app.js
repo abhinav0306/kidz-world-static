@@ -1,7 +1,9 @@
+//taking elements from html
 const button = document.getElementsByClassName("button")
 const cart_value = document.getElementById("cart-value")
 const cart = document.getElementById("cart")
 
+//array of items
 var items = [
     {
       name: "This was our pact",
@@ -95,7 +97,7 @@ var items = [
     })
   }
 
-
+//update cart func
 function updateCart(){
     let cart =0;
     for(let i=0;i<items.length;i++){
@@ -104,20 +106,18 @@ function updateCart(){
       cart_value.innerText = cart
 }
 
+//updateprice func
 let finalDollars =0;
 let finalCents =0;
 const updatePrice = ()=>{
     let total =0;
     for(let i=0;i<items.length;i++){
         total+=items[i].quantity*(items[i].dollars*100 + items[i].cents)
-
     }
     finalDollars = Math.floor(total/100);
     finalCents = total%100;
-
 }
-
-
+//onclick func
 cart.onclick=()=>{
     updateCart()
     updatePrice();
